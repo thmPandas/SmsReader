@@ -26,29 +26,21 @@
 
 
 	<body>
-
-		<header>
-			<nav class="navbar navbar-inverse">
-  			<div class="container-fluid">
-    			<div class="navbar-header">
-      				<a class="navbar-brand" href="#">
-        				<img alt="Brand" src="logo.png" width="50px" height="25px">
-      				</a>
-    			</div>
+		<div class="panel panel-default">
+  			<!-- Default panel contents -->
+  			<div class="panel-heading"><h1>SMS Backup Reader</h1></div>
+  			<div class="panel-body">
+    			<p>...</p>
   			</div>
-			</nav>
 
-		</header>
-
-
-
-
-		<div class="container">
-			<div class="row">
-				<div class="darkBG col-sn-6">test</div>
-				<div class="darkerBG col-sn-6">test</div>
-				<div class="darkestBG col-sn-6">test</div>
-			</div>
+  			<!-- List group -->
+  			<ul class="list-group">
+    			<li class="list-group-item">Cras justo odio</li>
+    			<li class="list-group-item">Dapibus ac facilisis in</li>
+    			<li class="list-group-item">Morbi leo risus</li>
+    			<li class="list-group-item">Porta ac consectetur ac</li>
+    			<li class="list-group-item">Vestibulum at eros</li>
+  			</ul>
 		</div>
 
 		<!-- Latest compiled and minified JavaScript -->
