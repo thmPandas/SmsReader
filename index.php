@@ -1,5 +1,5 @@
 <?php
-	//$xml=simplexml_load_file("C:\Users\Tim Garcia\Documents\Web\smsConvo2.xml") or die("Error: Cannot create object");
+	$xml=simplexml_load_file("C:\Users\Tim Garcia\Documents\Web\smsConvo2.xml") or die("Error: Cannot create object");
 
 
 	//foreach($xml->children() as $sms) { 
@@ -41,11 +41,51 @@
 
   				<!-- loop here the data -->
   				<?php
-  					echo"<li class='senderName'>Globe";
-  					echo"<li class='textMessage'>";
-  					echo"Need to send a text? We&apos;ve got you covered! Borrow Globe Emergency SMS with 3 texts to Globe/TM and P1 load for 1 day. On your next reload, P4 will be deducted. To register, text GTSOS to 3733. No advisories? Text STOP to 2682 for free.";
-  					echo"</li>";
-  					echo"</li>";
+  					$senderList = array();
+  					$messageList = array();
+  					$sender;
+  					$message;
+  					$trig = 0;
+
+  					foreach($xml->children() as $sms) { 
+    					$sender = $sms['address'];
+    					$message = $sms['body'];
+    					//echo $sender . "<br>";
+    					
+
+    					//echo  "Strig first value " . $trig . "<br><br>";
+
+    					foreach($senderList as $x){
+							//echo $sender . " == " . $x . "<br>";
+    						if("$sender" == "$x"){
+    							$trig = 1;
+    							//echo "strig to 1" . "<br>";
+    							break;
+
+    						}else{
+    							$strig = 0;
+    						}
+    					}
+
+
+    					//echo  "Strig second value " . $trig . "<br><br><br>";
+
+    					
+
+    					if($trig==0){
+    						echo "<li class='senderName'>" . $sender;
+  							echo "<li class='textMessage'>";
+  							echo $message;
+  							echo "</li>";
+  							echo "</li>";
+
+  							$senderList[] = $sender;
+    					}
+
+    					$trig = 0;
+    					//echo "strig is" . $trig .  " again <br>";
+
+					}
 				?>
   				<!-- end php here -->
     			
