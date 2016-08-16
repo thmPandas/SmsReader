@@ -1,11 +1,24 @@
-.darkBG{
+.message{
+	font-weight: bold;
+	float: left;
+}
+
+
+.iconSpan{
+	float:right;
+}
+
+.senderName{
 	background: #999;
+	padding-left: 15px;
+	font-weight: bold;
+	font-size: 100%;
 }
 
-.darkerBG{
-	background: #666;
-}
-
-.darkestBG{
-	background: #333;
+.textMessage{
+	background: #999;
+	padding-left: 15px;
+	height: 45px;
+	overflow: hidden;
+	margin-bottom: 2px;
 }

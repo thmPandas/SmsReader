@@ -1,5 +1,5 @@
 <?php
-	//$xml=simplexml_load_file("C:\Users\Tim Garcia\Documents\Web\SmsConvo.xml") or die("Error: Cannot create object");
+	//$xml=simplexml_load_file("C:\Users\Tim Garcia\Documents\Web\smsConvo2.xml") or die("Error: Cannot create object");
 
 
 	//foreach($xml->children() as $sms) { 
@@ -30,16 +30,25 @@
   			<!-- Default panel contents -->
   			<div class="panel-heading"><h1>SMS Backup Reader</h1></div>
   			<div class="panel-body">
-    			<p>...</p>
+    			<h3><p class="message">Messages</p></h3>
+    			<span class="iconSpan">
+    				<span class="glyphicon glyphicon-open-file" aria-hidden="true"></span>
+    			</span>
   			</div>
 
   			<!-- List group -->
   			<ul class="list-group">
-    			<li class="list-group-item">Cras justo odio</li>
-    			<li class="list-group-item">Dapibus ac facilisis in</li>
-    			<li class="list-group-item">Morbi leo risus</li>
-    			<li class="list-group-item">Porta ac consectetur ac</li>
-    			<li class="list-group-item">Vestibulum at eros</li>
+
+  				<!-- loop here the data -->
+  				<?php
+  					echo"<li class='senderName'>Globe";
+  					echo"<li class='textMessage'>";
+  					echo"Need to send a text? We&apos;ve got you covered! Borrow Globe Emergency SMS with 3 texts to Globe/TM and P1 load for 1 day. On your next reload, P4 will be deducted. To register, text GTSOS to 3733. No advisories? Text STOP to 2682 for free.";
+  					echo"</li>";
+  					echo"</li>";
+				?>
+  				<!-- end php here -->
+    			
   			</ul>
 		</div>
 
