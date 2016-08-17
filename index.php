@@ -38,6 +38,7 @@
   					$sender;
   					$message;
   					$trig = 0;
+  					$messageCount= 0;
 
   					foreach($xml->children() as $sms) { 
     					$sender = $sms['address'];
@@ -65,19 +66,23 @@
     					
 
     					if($trig==0){
+    						$messageCount++;
+    						//echo "<div class='messageCount'>";
     						echo "<li class='senderName'>" . $sender;
   							echo "<li class='textMessage'>";
   							echo $message;
   							echo "</li>";
   							echo "</li>";
+  							//echo "</div>";
 
   							$senderList[] = $sender;
     					}
 
     					$trig = 0;
-    					//echo "strig is" . $trig .  " again <br>";
+    					
 
 					}
+					echo "messageCount is" . $messageCount .  " <br>";
 				?>
   				<!-- end php here -->
     			
@@ -87,15 +92,19 @@
 		<!-- Latest compiled and minified JavaScript -->
 
 
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+		
 		<script src="jquery.js"></script>
 
 		<script>
-			$(document).ready(function(){
-				alert("yeah");
+			$(function() {
+				$('.senderName').on('click', function(){
+					alert('yeah');
+				});
+				
+				
 			});
 		</script>
 
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	</body>
 </html>
