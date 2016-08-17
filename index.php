@@ -36,12 +36,15 @@
   					$senderList = array();
   					$messageList = array();
   					$sender;
+  					$name;
+  					$number;
   					$message;
   					$trig = 0;
   					$messageCount= 0;
 
   					foreach($xml->children() as $sms) { 
-    					$sender = $sms['address'];
+  						$name = $sms['name'];
+    					$number = $sms['address'];
     					$message = $sms['body'];
     					//echo $sender . "<br>";
     					
@@ -49,33 +52,55 @@
     					//echo  "Strig first value " . $trig . "<br><br>";
 
     					foreach($senderList as $x){
-							//echo $sender . " == " . $x . "<br>";
-    						if("$sender" == "$x"){
-    							$trig = 1;
-    							//echo "strig to 1" . "<br>";
-    							break;
+							if("$name" != ""){
+								if("$name" == "$x"){
+    								$trig = 1;
+    								//echo "strig to 1" . "<br>";
+    								break;
 
-    						}else{
-    							$strig = 0;
-    						}
+    							}else{
+    								$strig = 0;
+    							}
+							}
+							else{
+								if("$number" == "$x"){
+    								$trig = 1;
+    								//echo "strig to 1" . "<br>";
+    								break;
+
+    							}else{
+    								$strig = 0;
+    							}
+							}
     					}
 
+    					if("$name" != ""){
+    						if($trig == 0){
+    							$messageCount++;
+    							//echo "<div class='messageCount'>";
+    							echo "<li class='senderName'>" . $name;
+  								echo "<li class='textMessage'>";
+  								echo $message;
+  								echo "</li>";
+  								echo "</li>";
+  								//echo "</div>";
 
-    					//echo  "Strig second value " . $trig . "<br><br><br>";
+  								$senderList[] = $name;
+  							}
+    					}
+    					else{
+    						if($trig==0){
+    							$messageCount++;
+    							//echo "<div class='messageCount'>";
+    							echo "<li class='senderName'>" . $number;
+  								echo "<li class='textMessage'>";
+  								echo $message;
+  								echo "</li>";
+  								echo "</li>";
+  								//echo "</div>";
 
-    					
-
-    					if($trig==0){
-    						$messageCount++;
-    						//echo "<div class='messageCount'>";
-    						echo "<li class='senderName'>" . $sender;
-  							echo "<li class='textMessage'>";
-  							echo $message;
-  							echo "</li>";
-  							echo "</li>";
-  							//echo "</div>";
-
-  							$senderList[] = $sender;
+  								$senderList[] = $number;
+    						}
     					}
 
     					$trig = 0;
@@ -98,6 +123,9 @@
 		<script>
 			$(function() {
 				$('.senderName').on('click', function(){
+					alert('yeah');
+				});
+				$('.textMessage').on('click', function(){
 					alert('yeah');
 				});
 				
